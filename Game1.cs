@@ -46,8 +46,8 @@ namespace Animating_with_Lists_Intro
                 tempSnowflake = new Rectangle(
                     generator.Next(window.Width),
                     generator.Next(window.Height),
-                    4,
-                    4);
+                    6,
+                    6);
                 snowFlakes.Add(tempSnowflake);
             }
             fallSpeed = new Vector2(0, 2);
@@ -58,7 +58,7 @@ namespace Animating_with_Lists_Intro
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            snowTexture = Content.Load<Texture2D>("circle");
+            snowTexture = Content.Load<Texture2D>("flake");
         }
 
         protected override void Update(GameTime gameTime)
@@ -84,8 +84,8 @@ namespace Animating_with_Lists_Intro
                     snowFlakes[i] = new Rectangle(
                     generator.Next(window.Width),
                     generator.Next(-10, 0),
-                    4,
-                    4);
+                    6,
+                    6);
                 }
             }
 
