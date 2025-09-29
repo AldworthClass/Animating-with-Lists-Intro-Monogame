@@ -39,18 +39,19 @@ namespace Animating_with_Lists_Intro
             _graphics.ApplyChanges();
             
             snowFlakes = new List<Rectangle>();
-            Rectangle tempSnowflake;
+
             // Creates a List of 50 snowflakes at random locations within the window
+            Rectangle tempSnowflake;
             for (int i = 0; i < 50; i++)
             {
                 tempSnowflake = new Rectangle(
                     generator.Next(window.Width),
                     generator.Next(window.Height),
-                    6,
-                    6);
+                    9,
+                    9);
                 snowFlakes.Add(tempSnowflake);
             }
-            fallSpeed = new Vector2(0, 2);
+            fallSpeed = new Vector2(0, 2); // All snowflakes will fall at the same speed
         }
 
         protected override void LoadContent()
@@ -68,7 +69,7 @@ namespace Animating_with_Lists_Intro
 
             // TODO: Add your update logic here
 
-            // Iterated through each snowflake
+            // Iterate through each snowflake to apply speed
             for (int i = 0; i < snowFlakes.Count; i++)
             {
                 // Moves the snowflake down
@@ -82,13 +83,12 @@ namespace Animating_with_Lists_Intro
                 if (snowFlakes[i].Y > window.Height)
                 {
                     snowFlakes[i] = new Rectangle(
-                    generator.Next(window.Width),
-                    generator.Next(-10, 0),
-                    6,
-                    6);
+                    generator.Next(window.Width),  
+                    generator.Next(-10, 0), // Puts snowflake, somewhere within 10 pixels above top of window
+                    9,
+                    9);
                 }
             }
-
             base.Update(gameTime);
         }
 
